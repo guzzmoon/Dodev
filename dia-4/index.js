@@ -1,12 +1,27 @@
-// codigo do lachin
-const temFome = prompt("Voce esta com fome? (sim/não)")
-const temDinheiro = prompt("Voçê tem dinheiro? (sim/não)")
-const restauranteAberto = prompt("Orestaurante esta aberto? (sim/não)")
+// CRIANDO VARIÁVEIS
+let nome;
+let idade;
+let temCarta = false;
+let temCarro = false;
 
-if(temFome === "não" || temDinheiro == "não") {
-    console.log("Hoje a janta sera em casa");
-}else if (temDinheiro === "sim" && restauranteAberto === "sim"){
-    console.log("Hoje o jantar sera no seu restaurante preferido!");
-}else {
-    console.log("Peça um delivery");
+// PEDINDO INFORMAÇÕES AO USUÁRIO
+nome = prompt("Digite seu nome");
+idade = parseInt(prompt("Digite sua idade"));
+let opcaoCarta = prompt("Você tem carta de motorista? (s/n)");
+
+if (opcaoCarta === "s") {
+  temCarta = true;
+  let opcaoCarro = prompt("Você tem carro? (s/n)");
+  if (opcaoCarro === "s") {
+    temCarro = true;
+  }
+}
+
+// EXIBINDO MENSAGEM NO CONSOLE
+if (idade < 18 || !temCarta) {
+  console.log(nome + ", você não pode dirigir");
+} else if (idade >= 18 && temCarta && !temCarro) {
+  console.log(nome + ", você pode dirigir mas não tem um carro");
+} else {
+  console.log(nome + ", você será o motorista!");
 }
